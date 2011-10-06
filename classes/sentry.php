@@ -115,7 +115,7 @@ class Sentry
 
 	protected static function suspend($login_id)
 	{
-		$result = \DB::insert('users_suspended')->set(array(
+		$result = \DB::insert(\Config::get('table.suspended'))->set(array(
 			'login_id' => $login_id,
 			'ip' => \Input::real_ip(),
 			'suspended_at' => time(),
